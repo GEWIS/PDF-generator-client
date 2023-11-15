@@ -1,0 +1,42 @@
+{
+  "name": "pdf-generator-client",
+  "version": "1.0.0",
+  "description": "This repository contains the client for the PDF-generator.",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "build": "vite build"
+  },
+  "main": "./dist/pdf-generator-client.umd.cjs",
+  "module": "./dist/pdf-generator-client.js",
+  "type": "module",
+  "types": "./dist/PDF-generator-client.d.ts",
+  "typings": "./dist/PDF-generator-client.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/pdf-generator-client.js",
+      "require": "./dist/pdf-generator-client.umd.cjs",
+      "types": "./dist/PDF-generator-client.d.ts"
+    }
+  },
+  "files": [
+    "./",
+    "dist/"
+  ],
+  "author": "Gijs de Man",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GEWIS/PDF-generator-client.git"
+  },
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/GEWIS/PDF-generator-client/issues"
+  },
+  "homepage": "https://github.com/GEWIS/PDF-generator-client#readme",
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vite-plugin-dts": "^3.6.3"
+  }
+}
