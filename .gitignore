@@ -1,0 +1,72 @@
+# Random stuff from internet template
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variable files
+.env
+.env.test
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Jetbrains pls
+.idea/**.*
+.idea/
+.idea
+
+# File management
+data/generated/
+data/generated/*
+data/uploads/
+data/uploads/*
+data/logos/
+data/logos/*
+data/backgrounds/
+data/backgrounds/*
+tmp/
+tmp/*
+
+# Merge errors are annoying
+build/*
+src/routes.ts
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.yarn-integrity
+.pnp.*
+src/public/
+src/public/*
