@@ -6,12 +6,12 @@ export declare class Client {
         fetch(url: RequestInfo, init?: RequestInit): Promise<Response>;
     });
     /**
-     * @return Created
+     * @return Ok
      */
     generateContract(type: ContractType, body: ContractRouteParams): Promise<FileResponse>;
     protected processGenerateContract(response: Response): Promise<FileResponse>;
     /**
-     * @return Created
+     * @return Ok
      */
     generateInvoice(type: InvoiceType, body: InvoiceRouteParams): Promise<FileResponse>;
     protected processGenerateInvoice(response: Response): Promise<FileResponse>;
@@ -266,9 +266,8 @@ export interface IInvoiceReferences {
     yourReference?: string;
     costCenter?: boolean;
 }
-export declare class InvoiceParameters implements IInvoiceParameters {
-    summarizedProducts?: Product[];
-    reference?: InvoiceReferences;
+/** From T, pick a set of properties whose keys are in the union K */
+export declare class Reference__ implements IReference__ {
     products: Product[];
     pricing: TotalPricing;
     subject: string;
@@ -277,14 +276,41 @@ export declare class InvoiceParameters implements IInvoiceParameters {
     dates: Dates;
     company: Company;
     address: Address;
+    [key: string]: any;
+    constructor(data?: IReference__);
+    init(_data?: any): void;
+    static fromJS(data: any): Reference__;
+    toJSON(data?: any): any;
+}
+/** From T, pick a set of properties whose keys are in the union K */
+export interface IReference__ {
+    products: Product[];
+    pricing: TotalPricing;
+    subject: string;
+    sender: Identity;
+    recipient: Identity;
+    dates: Dates;
+    company: Company;
+    address: Address;
+    [key: string]: any;
+}
+export declare class InvoiceParameters implements IInvoiceParameters {
+    products: Product[];
+    pricing: TotalPricing;
+    subject: string;
+    sender: Identity;
+    recipient: Identity;
+    dates: Dates;
+    company: Company;
+    address: Address;
+    summarizedProducts?: Product[];
+    reference?: InvoiceReferences;
     constructor(data?: IInvoiceParameters);
     init(_data?: any): void;
     static fromJS(data: any): InvoiceParameters;
     toJSON(data?: any): any;
 }
 export interface IInvoiceParameters {
-    summarizedProducts?: Product[];
-    reference?: InvoiceReferences;
     products: Product[];
     pricing: TotalPricing;
     subject: string;
@@ -293,6 +319,8 @@ export interface IInvoiceParameters {
     dates: Dates;
     company: Company;
     address: Address;
+    summarizedProducts?: Product[];
+    reference?: InvoiceReferences;
 }
 export declare class InvoiceRouteParams implements IInvoiceRouteParams {
     params: InvoiceParameters;

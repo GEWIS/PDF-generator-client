@@ -1,6 +1,6 @@
 {
   "name": "pdf-generator-client",
-  "version": "1.0.0",
+  "version": "2.202401",
   "description": "This repository contains the client for the PDF-generator.",
   "license": "AGPL-3.0-or-later",
   "scripts": {
