@@ -68,5 +68,9 @@ src/routes.ts
 .yarn/install-state.gz
 .yarn-integrity
 .pnp.*
+
 src/public/
 src/public/*
+
+PDF-generator-client.ts
+swagger.json
