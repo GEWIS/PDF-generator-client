@@ -1,12 +1,13 @@
 {
   "name": "pdf-generator-client",
-  "version": "2.202401",
+  "version": "0.0.1",
   "description": "This repository contains the client for the PDF-generator.",
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "build": "vite build",
     "generate": "nswag openapi2tsclient /input:swagger.json /output:PDF-generator-client.ts /ServiceHost:.",
-    "spec": "tsoa spec -c tsoa.json"
+    "spec": "tsoa spec -c tsoa.json",
+    "release": "release-it --ci major --git.commitMessage=\"chore: release ${version}\" --git.requireBranch=main --no-github.release --no-npm.publish"
   },
   "main": "./dist/pdf-generator-client.umd.cjs",
   "module": "./dist/pdf-generator-client.js",
@@ -40,6 +41,7 @@
     "vite": "^4.5.0",
     "vite-plugin-dts": "^3.6.3",
     "tsoa": "^6.0.1",
-    "nswag": "^14.0.2"
+    "nswag": "^14.0.2",
+    "release-it": "^17.2.1"
   }
 }
