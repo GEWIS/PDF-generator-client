@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vite build",
     "generate": "nswag openapi2tsclient /input:swagger.json /output:PDF-generator-client.ts /ServiceHost:.",
-    "spec": "tsoa spec -c tsoa.json",
+    "spec": "tsoa spec -c ../tsoa.json",
     "release": "release-it --ci major --git.commitMessage=\"chore: release ${version}\" --git.requireBranch=main --no-github.release --no-npm.publish"
   },
   "main": "./dist/pdf-generator-client.umd.cjs",

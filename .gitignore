@@ -72,5 +72,4 @@ src/routes.ts
 src/public/
 src/public/*
 
-PDF-generator-client.ts
 swagger.json
