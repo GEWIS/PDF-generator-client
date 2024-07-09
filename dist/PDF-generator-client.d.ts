@@ -8,6 +8,11 @@ export declare class Client {
     /**
      * @return Ok
      */
+    generatePayout(body: PayoutRouteParams): Promise<FileResponse>;
+    protected processGeneratePayout(response: Response): Promise<FileResponse>;
+    /**
+     * @return Ok
+     */
     generateContract(type: ContractType, body: ContractRouteParams): Promise<FileResponse>;
     protected processGenerateContract(response: Response): Promise<FileResponse>;
     /**
@@ -41,6 +46,74 @@ export declare class InternalError implements IInternalError {
 }
 export interface IInternalError {
     message: InternalErrorMessage;
+}
+export declare class Payout implements IPayout {
+    bankAccountName: string;
+    bankAccountNumber: string;
+    amount: number;
+    reference: string;
+    date: Date;
+    debtorNumber: string;
+    constructor(data?: IPayout);
+    init(_data?: any): void;
+    static fromJS(data: any): Payout;
+    toJSON(data?: any): any;
+}
+export interface IPayout {
+    bankAccountName: string;
+    bankAccountNumber: string;
+    amount: number;
+    reference: string;
+    date: Date;
+    debtorNumber: string;
+}
+export declare class PayoutParameters implements IPayoutParameters {
+    payout: Payout;
+    constructor(data?: IPayoutParameters);
+    init(_data?: any): void;
+    static fromJS(data: any): PayoutParameters;
+    toJSON(data?: any): any;
+}
+export interface IPayoutParameters {
+    payout: Payout;
+}
+export declare enum Language {
+    DUTCH = "DUTCH",
+    ENGLISH = "ENGLISH"
+}
+export declare enum ReturnFileType {
+    PDF = "PDF",
+    TEX = "TEX"
+}
+export declare class FileSettings implements IFileSettings {
+    name: string;
+    language: Language;
+    fileType: ReturnFileType;
+    stationery?: string;
+    createdAt: Date;
+    constructor(data?: IFileSettings);
+    init(_data?: any): void;
+    static fromJS(data: any): FileSettings;
+    toJSON(data?: any): any;
+}
+export interface IFileSettings {
+    name: string;
+    language: Language;
+    fileType: ReturnFileType;
+    stationery?: string;
+    createdAt: Date;
+}
+export declare class PayoutRouteParams implements IPayoutRouteParams {
+    params: PayoutParameters;
+    settings: FileSettings;
+    constructor(data?: IPayoutRouteParams);
+    init(_data?: any): void;
+    static fromJS(data: any): PayoutRouteParams;
+    toJSON(data?: any): any;
+}
+export interface IPayoutRouteParams {
+    params: PayoutParameters;
+    settings: FileSettings;
 }
 export declare enum ContractType {
     Contract = "contract",
@@ -208,32 +281,6 @@ export interface IContractParameters {
     pricing: TotalPricing;
     firstSignee: Identity;
     secondSignee: Identity;
-}
-export declare enum Language {
-    DUTCH = "DUTCH",
-    ENGLISH = "ENGLISH"
-}
-export declare enum ReturnFileType {
-    PDF = "PDF",
-    TEX = "TEX"
-}
-export declare class FileSettings implements IFileSettings {
-    name: string;
-    language: Language;
-    fileType: ReturnFileType;
-    stationery?: string;
-    createdAt: Date;
-    constructor(data?: IFileSettings);
-    init(_data?: any): void;
-    static fromJS(data: any): FileSettings;
-    toJSON(data?: any): any;
-}
-export interface IFileSettings {
-    name: string;
-    language: Language;
-    fileType: ReturnFileType;
-    stationery?: string;
-    createdAt: Date;
 }
 export declare class ContractRouteParams implements IContractRouteParams {
     params: ContractParameters;
